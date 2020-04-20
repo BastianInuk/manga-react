@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import './App.css'
+import { NavBar, Button } from './components/NavBar'
+
+const navLinks: Button[] = 
+[ new Button("Home", () => {
+    console.log("Home pressed");
+  }),
+  new Button("Profile", () => {
+    console.log("Profile pressed")
+  })
+]
+
+const App = () =>
+(
+  <div>
+    <header>
+      <NavBar buttons={navLinks} />
+    </header>
+  </div>
+)
 
 export default App;
