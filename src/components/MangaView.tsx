@@ -1,10 +1,24 @@
-import * as React from "react"
+import React from "react"
+import { RouteComponentProps } from "react-router-dom"
 
-import { Manga } from "../models/Manga"
+import { loadManga } from "../controllers/LoadManga"
+import NotFound from "./404"
 
-export const MangaView = (manga: Manga) =>
-(
-    <div>
+//let [ manga, setManga ] = React.useState<Manga>()
 
-    </div>
-)
+type TParams = { slug: string }
+
+export const MangaView = ({ match }: RouteComponentProps<TParams>) => 
+{ 
+    try {
+        let manga = loadManga(match.params.slug)
+        return(
+            <p>
+                { manga.title }
+            </p>
+        )
+    } catch (e) {
+        console.log(e)
+        return <NotFound manga />
+    }
+}

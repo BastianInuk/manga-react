@@ -9,10 +9,13 @@ import {
 
 import './App.css'
 import { NavBar, Button } from './components/NavBar'
+import { MangaView } from "./components/MangaView"
+import NotFound from "./components/404"
 
 const navLinks: Button[] = 
 [ new Button("Home", "/"),
-  new Button("Profile", "/profile")
+  new Button("Profile", "/profile"),
+  new Button("Random Book", "/manga/hello")
 ]
 
 const Home = () =>
@@ -38,8 +41,13 @@ const App = () =>
           <Profile />
         </Route>
 
+        <Route path="/manga/:slug" component={MangaView} />
+
         <Route exact path="/">
          <Home />
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
 
