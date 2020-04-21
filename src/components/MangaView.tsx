@@ -4,8 +4,6 @@ import { RouteComponentProps } from "react-router-dom"
 import { loadManga } from "../controllers/LoadManga"
 import NotFound from "./404"
 
-//let [ manga, setManga ] = React.useState<Manga>()
-
 type TParams = { slug: string }
 
 export const MangaView = ({ match }: RouteComponentProps<TParams>) => 
