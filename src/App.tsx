@@ -37,22 +37,16 @@ const App = () =>
       </header>
 
       <Switch>
-        <Route path="/profile">
-          <Profile />
-        </Route>
+        <Route path="/profile" component={Profile} />
 
         <Route path="/manga/:slug" component={MangaView} />
 
-        <Route exact path="/">
-         <Home />
-        </Route>
-        <Route path="*">
-          <NotFound />
-        </Route>
+        <Route exact path="/" component={Home} />
+        <Route path="*" component={NotFound} />
       </Switch>
 
       <footer>
-
+        <p>Manga.dk is © Inuk Entertainment 2020</p>
       </footer>
     </div>
   </Router>
