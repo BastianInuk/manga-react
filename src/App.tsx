@@ -11,6 +11,7 @@ import './App.css'
 import { NavBar, Button } from './components/NavBar'
 import { MangaView } from "./components/MangaView"
 import NotFound from "./components/404"
+import { ProfileBar } from "./components/Profile"
 
 const navLinks: Button[] = 
 [ new Button("Home", "/"),
@@ -31,24 +32,27 @@ const Profile = () =>
 const App = () =>
 (
   <Router>
-    <div>
       <header>
         <NavBar buttons={navLinks} />
       </header>
 
-      <Switch>
-        <Route path="/profile" component={Profile} />
+      <ProfileBar />
 
-        <Route path="/manga/:slug" component={MangaView} />
+      <div className="body">
+        <Switch>
+          <Route path="/profile" component={Profile} />
 
-        <Route exact path="/" component={Home} />
-        <Route path="*" component={NotFound} />
-      </Switch>
+          <Route path="/manga/:slug" component={MangaView} />
+
+          <Route exact path="/" component={Home} />
+          
+          <Route path="*" component={NotFound} />
+        </Switch>
+      </div>
 
       <footer>
         <p>Manga.dk is © Inuk Entertainment 2020</p>
       </footer>
-    </div>
   </Router>
 )
 
