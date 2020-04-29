@@ -1,4 +1,5 @@
-export const setCookie = (name: string, value: string) => {
+export const setCookie = (name: string, value: string) =>
+{
     const date = new Date();
 
     // Set it expire in 7 days
@@ -8,18 +9,22 @@ export const setCookie = (name: string, value: string) => {
     document.cookie = name+"="+value+"; expires="+date.toUTCString()+"; path=/";
 }
 
-export const getCookie = (name: string) => {
+export const getCookie = (name: string) =>
+{
     const value = "; " + document.cookie;
     const parts = value.split("; " + name + "=");
     
-    if (parts.length === 2) {
-        if (parts !== undefined) {
+    if (parts.length === 2)
+    {
+        if (parts !== undefined)
+        {
             return parts.pop()!.split(";").shift();
         }
     }
 }
 
-export const deleteCookie = (name: string) => {
+export const deleteCookie = (name: string) =>
+{
     const date = new Date();
 
     // Set it expire in -1 days
